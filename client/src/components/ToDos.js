@@ -1,13 +1,14 @@
 import React from 'react';
 import ToDo from './ToDo';
 
-const ToDos = () => {
+const ToDos = (props) => {
     return (
         <div>
-            <ToDo />
-            <ToDo />
-            <ToDo />
-            <ToDo />
+            {
+                props.todos.map((todo, index) => {
+                    return <ToDo todo={todo} key={index} deleteItem={() => props.deleteItem(index)} /*editItem={() => props.editItem(index)}*/ />
+                })
+            }
         </div>
     )
 }
